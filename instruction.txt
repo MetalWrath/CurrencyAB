@@ -1,0 +1,42 @@
+Сервис возвращает гиф в зависимости от выбранного курса валют.
+
+Стек: Spring Boot, Spring MVC, Spring.Cloud Feign, Thymeleaf, Jackson, Gradle, Java.
+Ссылка на исходный код: https://github.com/MetalWrath/CurrencyAB
+Ссылка на докер файл: https://hub.docker.com/repository/docker/ancientdoom/currencyab
+Докер контейнер поднят по ссылке: http://metalwrath.ru:8080/
+
+Инструкция по запуску:
+1. Проследовать по ссылке: https://github.com/MetalWrath/CurrencyAB
+2. Нажать на кнопку CODE, выбрать HTTPS и скопировать URL.
+3. В среде разработки (в моем случае IntelliJ IDEA) проследовать по следующему пути: 
+   
+   File -> New -> Project from Version Control
+
+   Вставить туда скопированный URL и нажать Clone.
+4. Если появиться окно "Trust and Open Gradle Project" - нажать Trust Project.
+5. Подождать, пока Gradle автоматически соберет проект и нажать Run (Shift+F10 по умолчанию). 
+
+   /*
+   Если по каким-то причинам проект не собрался автоматически нужно в терминале выполнить следующие команды:
+	  ./gradlew clean 
+	  ./gradlew build
+   */
+
+6. Открыть браузер и проследовать по:
+   http://localhost:8080/ - Визуальный вариант с выбором валют и 2-мя кнопками:
+	- Кнопка "Поехали" редиректит на URL Gif'ки.
+	- Кнопка "Просто получить значения курсов и УРЛ" - переводит на отдельную страницу, на которой отображается ссылка на Gif'ку, значения курса выбранной валюты и сама Gif'ка.
+   
+   http://localhost:8080/api/get-gif-url?cur=<currency>  - возвращает ссылку на Gif'ку в зависимости от значений курса валют, переданного в параметре <currency>. 
+
+   Пример: http://localhost:8080/api/get-gif-url?cur=eur
+
+
+Запуск Docker контейнера.
+В терминале выполнить следующие команды:
+	- docker pull ancientdoom/currencyab
+	- docker run --name currency -p 8080:8080 -d --rm  ancientdoom/currencyab 
+	ВАЖНО: В момент запуска контейнера порт 8080 не должен быть занят другими приложениями.
+
+Перейти к пункту №6 данной инструкции.
+	
