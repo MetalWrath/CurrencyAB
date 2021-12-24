@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body style="background-color: aqua;">
+<h1 style="text-align: center;">Hello, my master!</h1>
+<br><br><br>
+
+<!--<div style="text-align: center;">-->
+<!--    <form method="post" action="/">-->
+
+<!--        <input type="text" name="cur" placeholder="Введите валюту" required>-->
+<!--        <input type="submit" value="Поехали!">-->
+
+<!--    </form>-->
+<!--</div>-->
+<br><br><br>
+
+<div >
+    <p>Выбирите код валюты: </p>
+    <form >
+        <select name="cur" required>
+<!--            <option>Select Currency</option>-->
+            <option th:each="n : ${optionals}" th:value="${n}" th:text="${n}"/>
+        </select>
+        <button type="submit" formmethod="post" formaction="/">Поехали!</button>
+        <button type="submit" formmethod="get" formaction="/just-take-url">Просто получить значения курсов и УРЛ!</button>
+
+    </form>
+</div>
+
+
+
+
+</body>
+</html>

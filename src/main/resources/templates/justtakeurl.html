@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take your URL!</title>
+</head>
+<body style="background-color: aqua;">
+<h2 style="text-align: center;">URL на гифку, которая отображает положение дел на сегодня относительно выбранной валюты: </h2>
+<h3 style="text-align: center;"><p th:text="${url}"></p></h3>
+<br>
+<h5 th:text="'Сегодня курс ' + ${cur} + ' равен ' + ${curToday}"></h5>
+<h5 th:text="'Вчера курс ' + ${cur} + ' был равен ' + ${curYesterday}"></h5>
+<br>
+<img th:src="@{${url}}"/>
+
+
+<form style="text-align: center;" action="/">
+<button>Вернуться на главную</button>
+</form>
+
+
+</body>
+</html>
